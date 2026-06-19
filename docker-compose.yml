@@ -1,18 +1,4 @@
 services:
-  # ── MongoDB ────────────────────────────────────────────
-  mongo:
-    image: mongo:6.0
-    restart: unless-stopped
-    volumes:
-      - mongo-data:/data/db
-    ports:
-      - "27017:27017"
-    healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
   # ── Backend (Express API) ──────────────────────────────
   backend:
     build:
@@ -21,15 +7,12 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5050
-      - MONGO_URI=mongodb://mongo:27017/axios
-      - JWT_SECRET=your_jwt_secret_key
+      - MONGO_URI=${MONGO_URI}
+      - JWT_SECRET=${JWT_SECRET}
       - JWT_EXPIRES_IN=1d
       - WITNESS_SERVERS=http://witness1:7001,http://witness2:7002,http://witness3:7003
     ports:
       - "5050:5050"
-    depends_on:
-      mongo:
-        condition: service_healthy
     restart: unless-stopped
 
   # ── Frontend (Vite build → nginx) ─────────────────────
@@ -78,5 +61,3 @@ services:
       - "7003:7003"
     restart: unless-stopped
 
-volumes:
-  mongo-data:
