@@ -232,7 +232,7 @@ export function LandDetail() {
           <Section title="Financial & Legal" icon={<Landmark size={15} />}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               <Field label="Loan Active" value={<StatusBadge status={loan?.loanActive ? "Active" : "Inactive"} variant="boolean" />} />
-              {loan?.loanActive && <Field label="Bank" value={loan?.bankName as string} />}
+              {Boolean(loan?.loanActive) && <Field label="Bank" value={loan?.bankName as string} />}
               <Field label="Court Case" value={<StatusBadge status={legal?.courtCase ? "Yes" : "No"} variant="boolean" />} />
               <Field label="Verification" value={<StatusBadge status={(land.verificationStatus as string) || "—"} variant="verification" />} />
             </div>

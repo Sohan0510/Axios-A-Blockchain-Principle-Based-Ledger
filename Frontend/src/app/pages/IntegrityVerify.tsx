@@ -8,10 +8,9 @@ import {
   AlertCircle,
   CheckCircle2,
   AlertTriangle,
-  ArrowLeft,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { Link } from "react-router";
+
 import { integrityAPI } from "../lib/api";
 import { MerkleRootDisplay } from "../components/MerkleRootDisplay";
 
