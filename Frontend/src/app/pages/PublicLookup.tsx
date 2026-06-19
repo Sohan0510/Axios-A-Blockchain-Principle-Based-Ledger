@@ -69,7 +69,7 @@ export function PublicLookup() {
     } finally {
       setLoading(false);
     }
-  }, [landId]);
+  }, [landId, t]);
 
   const handleDownload = useCallback(() => {
     if (!data?.landId) return;

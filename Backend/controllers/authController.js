@@ -22,7 +22,7 @@ export const registerAdmin = async (req, res) => {
 
     res.status(201).json({
       message: "Admin registered successfully",
-      admin
+      admin: { _id: admin._id, name: admin.name, email: admin.email }
     });
 
   } catch (error) {

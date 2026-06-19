@@ -12,8 +12,10 @@ interface TomTomMapProps {
 
 export function TomTomMap({ latitude, longitude, label, height = "350px" }: TomTomMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<TomTomMap | null>(null);
-  const markerRef = useRef<TomTomMarker | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mapInstanceRef = useRef<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const markerRef = useRef<any>(null);
 
   useEffect(() => {
     if (!mapRef.current) return;

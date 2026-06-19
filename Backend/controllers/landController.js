@@ -52,7 +52,7 @@ export const recomputeIntegrity = async (req, res) => {
 
     // Build deterministic payload and Merkle tree
     const payload = buildHashPayload(land);
-    const { merkleRoot, leafHashes } = buildMerkleTree(payload);
+    const { merkleRoot, leafHashMap } = buildMerkleTree(payload);
 
     // Try to collect witness signatures, but don't fail the migration if witnesses are down
     let signatures = [];
@@ -69,7 +69,7 @@ export const recomputeIntegrity = async (req, res) => {
         $set: {
           integrity: {
             merkleRoot,
-            leafHashes,
+            leafHashMap,
             lastHashedAt: new Date(),
           },
           witnessSignatures: signatures,

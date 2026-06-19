@@ -62,7 +62,7 @@ export function IntegrityVerify() {
     } finally {
       setLoading(false);
     }
-  }, [landId]);
+  }, [landId, t]);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:py-16">

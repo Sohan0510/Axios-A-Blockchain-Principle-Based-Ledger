@@ -272,7 +272,7 @@ export const generateLandPDF = (land, res) => {
   y = drawTableRow([
     ["Owner Name", land.owner?.ownerName || "N/A"],
     ["Owner ID (Aadhaar/PAN)", land.owner?.ownerId || "N/A"],
-    ["Father / Spouse", land.owner?.fatherSpouseName || "N/A"],
+    ["Father / Spouse", land.owner?.fatherOrSpouseName || "N/A"],
   ], y);
 
   y = drawTableRow([
@@ -373,12 +373,12 @@ export const generateLandPDF = (land, res) => {
   y += intBoxH + 10;
 
   /* ── WITNESS SIGNATURE SUMMARY ── */
-  const sigCount = land.integrity?.witnessSignatures?.length ?? 0;
+  const sigCount = land.witnessSignatures?.length ?? 0;
   if (sigCount > 0) {
     doc.font("Helvetica-Bold").fontSize(7).fillColor(C.navy)
       .text(`Witness Signatures: ${sigCount} of 3 nodes verified`, M, y);
     y += 10;
-    land.integrity.witnessSignatures.forEach((sig, i) => {
+    land.witnessSignatures.forEach((sig, i) => {
       doc.font("Courier").fontSize(5.5).fillColor(C.midGray)
         .text(`Node ${i + 1} [${sig.witnessUrl || ""}]:  ${(sig.signature || "").substring(0, 64)}...`, M + 8, y);
       y += 8;

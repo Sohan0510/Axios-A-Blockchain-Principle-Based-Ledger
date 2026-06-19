@@ -125,7 +125,7 @@ export function Register() {
 
             <div>
               <label className="block text-xs text-text-secondary mb-1.5">
-                Full Name
+                {t('registerPage.fullName')}
               </label>
               <input
                 type="text"
@@ -142,7 +142,7 @@ export function Register() {
 
             <div>
               <label className="block text-xs text-text-secondary mb-1.5">
-                Email Address
+                {t('registerPage.email')}
               </label>
               <input
                 type="email"
@@ -159,7 +159,7 @@ export function Register() {
 
             <div>
               <label className="block text-xs text-text-secondary mb-1.5">
-                Password
+                {t('registerPage.password')}
               </label>
               <div className="relative">
                 <input
@@ -189,7 +189,7 @@ export function Register() {
 
             <div>
               <label className="block text-xs text-text-secondary mb-1.5">
-                Confirm Password
+                {t('registerPage.confirmPassword')}
               </label>
               <input
                 type="password"

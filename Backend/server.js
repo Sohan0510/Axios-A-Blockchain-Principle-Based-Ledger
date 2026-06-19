@@ -15,9 +15,6 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-console.log("SECRET DURING VERIFY:", process.env.JWT_SECRET);
-
-
 // Test route
 app.get("/test", (req, res) => {
   res.json({ message: "Server is working" });

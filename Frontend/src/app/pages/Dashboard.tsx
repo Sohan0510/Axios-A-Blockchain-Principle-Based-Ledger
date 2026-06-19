@@ -14,7 +14,7 @@ import {
   ArrowLeftRight,
   Zap,
 } from "lucide-react";
-import { adminAPI } from "../lib/api";
+import { adminAPI, publicAPI } from "../lib/api";
 import { useAuth } from "../lib/auth";
 import { useTranslation } from "react-i18next";
 import { GlowButton } from "../components/GlowButton";
@@ -289,7 +289,7 @@ export function Dashboard() {
                 </div>
                 <h3 className="text-[14px] text-text-primary mb-1">{qa.title}</h3>
                 <p className="text-[12px] text-text-muted mb-3">{qa.desc}</p>
-                <p className="text-[11px] text-muted-foreground font-mono">{qa.api}</p>
+
               </motion.button>
             );
           })}
